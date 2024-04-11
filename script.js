@@ -2,11 +2,15 @@ let btn = document.querySelector(".btn");
 let tab = document.querySelector(".table");
 let count = localStorage.length;
 let cap = document.createElement("caption");
-let dang = document.querySelector(".danger");
 let cont = document.querySelector(".container");
 let alt = document.createElement("div");
 let head = document.querySelector(".hea");
 
+let updateCap = (count) => {
+  count++;
+  cap.innerHTML = `You have ${count} tasks pending`;
+  tab.before(cap);
+};
 const alertadd = () => {
   alt.innerHTML = `<div
   class="alert alert-danger d-flex justify-content-center"
@@ -20,9 +24,6 @@ The task input cannot be empty!!
 
 const alertrem = () => {
   cont.removeChild(alt);
-};
-const deleteAll = () => {
-  localStorage.clear();
 };
 
 let i = (a) => {
@@ -51,13 +52,6 @@ btn.addEventListener("click", () => {
   `;
     tab.innerHTML += addTable;
     task.value = "";
-  }
-});
-
-dang.addEventListener("click", () => {
-  let res = confirm("Are you sure to clear the list (It cannot be resorted)");
-  if (res == true) {
-    deleteAll();
   }
 });
 
