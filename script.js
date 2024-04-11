@@ -5,12 +5,20 @@ let cap = document.createElement("caption");
 let cont = document.querySelector(".container");
 let alt = document.createElement("div");
 let head = document.querySelector(".hea");
+let dang = document.querySelector(".dang");
 
-let updateCap = (count) => {
-  count++;
+let deleteAll = () => {
+  let rows = document.querySelectorAll("tr");
+  console.log(rows.length);
+
+  for (let i = rows.length - 1; i >= 1; i--) {
+    rows[i].remove();
+  }
+  count = 0;
   cap.innerHTML = `You have ${count} tasks pending`;
   tab.before(cap);
 };
+
 const alertadd = () => {
   alt.innerHTML = `<div
   class="alert alert-danger d-flex justify-content-center"
@@ -52,6 +60,7 @@ btn.addEventListener("click", () => {
   `;
     tab.innerHTML += addTable;
     task.value = "";
+    updateDeletebtn();
   }
 });
 
@@ -84,5 +93,13 @@ tab.addEventListener("click", (event) => {
       tab.before(cap);
       return count;
     }
+  }
+});
+
+dang.addEventListener("click", () => {
+  let res = confirm("Are you sure");
+  if (res) {
+    console.log(res);
+    deleteAll();
   }
 });
