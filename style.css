@@ -1,0 +1,18 @@
+.bi {
+  font-size: 1.75rem;
+}
+.bi-dot {
+  font-size: 2rem;
+}
+.bi-trash {
+  color: red;
+  cursor: pointer;
+}
+.bi-check-all {
+  color: green;
+  cursor: pointer;
+}
+
+.strike {
+  text-decoration: line-through;
+}
